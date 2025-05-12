@@ -34,7 +34,7 @@ const UserProfileView = ({user, isOpen, onClose}: UserProfileViewProps) => {
 								/>
 							) : ( */}
 							<div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-3xl">
-								{user?.first_name.charAt(0).toUpperCase()}
+								{user?.first_name ? user.first_name.charAt(0).toUpperCase() : '?'}
 							</div>
 							{/* )} */}
 						</div>
@@ -44,13 +44,13 @@ const UserProfileView = ({user, isOpen, onClose}: UserProfileViewProps) => {
 								<div className="flex flex-col">
 									<p className="text-sm text-gray-500">First Name:</p>
 									<p className="text-lg font-medium">
-										{user?.first_name.split(" ")[0]}
+										{user?.first_name ? user.first_name.split(" ")[0] : ''}
 									</p>
 								</div>
 
 								<div className="flex flex-col">
 									<p className="text-sm text-gray-500">Last Name:</p>
-									<p className="text-lg font-medium">{user?.last_name}</p>
+									<p className="text-lg font-medium">{user?.last_name || ''}</p>
 								</div>
 							</div>
 							<div className="flex">
@@ -61,7 +61,7 @@ const UserProfileView = ({user, isOpen, onClose}: UserProfileViewProps) => {
 									</div>
 									<div className="flex gap-2">
 										<Mail className="w-5 h-5 text-gray-500" />
-										<span>{user?.email}</span>
+										<span>{user?.email || ""}</span>
 									</div>
 								</div>
 							</div>
@@ -71,36 +71,36 @@ const UserProfileView = ({user, isOpen, onClose}: UserProfileViewProps) => {
 					<div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-8">
 						<div>
 							<p className="text-sm text-gray-500">Stickers Found</p>
-							<p className="text-lg font-medium">{user?.stickers_found}</p>
+							<p className="text-lg font-medium">{user?.stickers_found || 0}</p>
 						</div>
 						<div>
 							<p className="text-sm text-gray-500">Role</p>
-							<p className="text-lg font-medium">{user?.role}</p>
+							<p className="text-lg font-medium">{user?.role || ''}</p>
 						</div>
 						<div>
 							<p className="text-sm text-gray-500">Created</p>
 							<p className="text-lg font-medium">
-								{user?.account_creation_date}
+								{user?.account_creation_date || ''}
 							</p>
 						</div>
 						<div>
 							<p className="text-sm text-gray-500">Last Login</p>
-							<p className="text-lg font-medium">{user?.last_login}</p>
+							<p className="text-lg font-medium">{user?.last_login || ''}</p>
 						</div>
 						<div>
 							<p className="text-sm text-gray-500">Last Logout</p>
-							<p className="text-lg font-medium">{user?.last_logout}</p>
+							<p className="text-lg font-medium">{user?.last_logout || ''}</p>
 						</div>
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
 						<div>
 							<p className="text-sm text-gray-500">Gender</p>
-							<p className="text-lg font-medium">{user?.gender}</p>
+							<p className="text-lg font-medium">{user?.gender || ''}</p>
 						</div>
 						<div>
 							<p className="text-sm text-gray-500">DOB</p>
-							<p className="text-lg font-medium">{user?.date_of_birth}</p>
+							<p className="text-lg font-medium">{user?.date_of_birth || ''}</p>
 						</div>
 						<div>
 							<p className="text-sm text-gray-500">Country</p>
